@@ -32,6 +32,35 @@ st.markdown("""
         border-right: 1px solid #494455;
     }
     
+    /* Force chat message alignment */
+    .stChatMessage {
+        display: flex !important;
+        width: 100% !important;
+    }
+    
+    .stChatMessage.user {
+        justify-content: flex-end !important;
+    }
+    
+    .stChatMessage.assistant {
+        justify-content: flex-start !important;
+    }
+    
+    .stChatMessage.user > div {
+        background-color: #7c4dff !important;
+        color: white !important;
+        border-radius: 16px !important;
+        max-width: 70% !important;
+    }
+    
+    .stChatMessage.assistant > div {
+        background-color: #1e1e1e !important;
+        color: #e5e2e1 !important;
+        border-radius: 16px !important;
+        max-width: 70% !important;
+        border: 1px solid #494455 !important;
+    }
+    
     /* Button styling */
     .stButton>button {
         background-color: #7c4dff;
