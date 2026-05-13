@@ -139,11 +139,11 @@ def generate_response(prompt):
                 if response.has_answer:
                     answer = response.answer
                     if response.source_url:
-                        answer += f"\n\n📄 **Source:** {response.source_url}"
+                        answer += f"\n\n📄 Source: {response.source_url}"
                     if response.scheme_name:
-                        answer += f"\n🏦 **Scheme:** {response.scheme_name}"
+                        answer += f"\n🏦 Scheme: {response.scheme_name}"
                     if response.last_updated:
-                        answer += f"\n📅 **Last Updated:** {response.last_updated}"
+                        answer += f"\n📅 Last Updated: {response.last_updated}"
                 else:
                     answer = response.answer
                 
