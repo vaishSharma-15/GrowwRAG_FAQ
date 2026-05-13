@@ -15,16 +15,57 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Custom CSS for better styling
+st.markdown("""
+<style>
+    .stApp {
+        background-color: #131313;
+    }
+    .stChatMessage {
+        background-color: #1e1e1e;
+        border-radius: 12px;
+        padding: 16px;
+        margin: 8px 0;
+    }
+    .stChatMessage.user {
+        background-color: #2a2a2a;
+    }
+    .stChatMessage.assistant {
+        background-color: #1e1e1e;
+    }
+    .stButton>button {
+        background-color: #7c4dff;
+        color: white;
+        border-radius: 8px;
+        border: none;
+    }
+    .stButton>button:hover {
+        background-color: #651fff;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Initialize session state
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # Sidebar
 with st.sidebar:
-    st.title("🏦 Axis Mutual Fund FAQ")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <div style="width: 40px; height: 40px; background-color: #7c4dff; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 24px;">🏦</span>
+        </div>
+        <div>
+            <h2 style="margin: 0; color: #7c4dff; font-size: 16px;">Axis FAQ</h2>
+            <p style="margin: 0; color: #e5e2e1; font-size: 12px; opacity: 0.7;">Verified Intelligence</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
     st.markdown("---")
     
-    st.subheader("Supported Schemes")
+    st.markdown("### Schemes")
     schemes = [
         "Axis Flexi Cap Fund",
         "Axis Small Cap Fund",
@@ -42,21 +83,45 @@ with st.sidebar:
     
     st.markdown("---")
     st.markdown("### Quick Actions")
-    if st.button("Clear Chat"):
+    if st.button("Clear Chat", use_container_width=True):
         st.session_state.messages = []
         st.rerun()
     
     st.markdown("---")
-    st.markdown("Powered by RAG + Groq LLM")
+    st.markdown("Powered by RAG + Groq LLM", unsafe_allow_html=True)
 
 # Main chat interface
 st.title("Axis Mutual Fund FAQ Assistant")
 st.markdown("Ask me anything about Axis mutual fund schemes including expense ratios, NAV, exit loads, and more.")
 
+# Example prompts (like local frontend)
+example_prompts = [
+    "What is the expense ratio of Axis Flexi Cap Fund?",
+    "What is the NAV of Axis Small Cap Fund?",
+    "What is the exit load of Axis Gold Fund?",
+    "What is the AUM of Axis Silver FoF?"
+]
+
+# Display example prompts
+if not st.session_state.messages:
+    st.markdown("### Quick Questions")
+    cols = st.columns(2)
+    for i, prompt in enumerate(example_prompts):
+        col_idx = i % 2
+        with cols[col_idx]:
+            if st.button(prompt, key=f"prompt_{i}", use_container_width=True):
+                st.session_state.messages.append({"role": "user", "content": prompt})
+                st.rerun()
+
 # Try to initialize RAG pipeline
 rag_available = False
 try:
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+    
+    # Create log directory if it doesn't exist
+    log_dir = os.path.join(os.path.dirname(__file__), 'logs', 'phase4')
+    os.makedirs(log_dir, exist_ok=True)
+    
     from rag_pipeline import RAGPipeline
     from groq_client import GroqClient
     
