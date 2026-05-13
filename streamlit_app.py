@@ -108,7 +108,7 @@ with st.sidebar:
             <span style="font-size: 24px;">🏦</span>
         </div>
         <div>
-            <h2 style="margin: 0; color: #7c4dff; font-size: 16px;">Axis FAQ</h2>
+            <h2 style="margin: 0; color: #7c4dff; font-size: 16px;">Axis Mutual Fund FAQ</h2>
             <p style="margin: 0; color: #e5e2e1; font-size: 12px; opacity: 0.7;">Verified Intelligence</p>
         </div>
     </div>
