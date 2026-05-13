@@ -198,6 +198,14 @@ except Exception as e:
 # Function to generate response (used by both example prompts and chat input)
 def generate_response(prompt):
     """Generate response for a given prompt"""
+    # Handle thank you
+    if "thank" in prompt.lower():
+        return "You're welcome! Feel free to ask me anything else about Axis mutual fund schemes."
+    
+    # Handle greetings
+    if any(greeting in prompt.lower() for greeting in ["hello", "hi", "hey", "greetings"]):
+        return "Hello! I'm your Axis Mutual Fund FAQ Assistant. I can help you with information about Axis mutual fund schemes including expense ratios, NAV, exit loads, and more. Feel free to ask me anything about the supported schemes."
+    
     if rag_available:
         try:
             response = st.session_state.rag_pipeline.query(prompt)
