@@ -8,7 +8,7 @@ This directory contains GitHub Actions workflows for automated data refresh and 
 
 **Purpose**: Automatically refresh mutual fund data daily to keep information up-to-date.
 
-**Schedule**: Daily at 6:00 AM IST (12:30 AM UTC)
+**Schedule**: Daily at 9:00 AM IST (3:30 AM UTC)
 
 **Manual Trigger**: You can also trigger manually from GitHub Actions UI (`workflow_dispatch`)
 
@@ -79,7 +79,7 @@ Check the logs in GitHub Actions:
 
 ### Data Update Frequency
 
-- **Automatic**: Daily at 6:00 AM IST
+- **Automatic**: Daily at 9:00 AM IST
 - **Manual**: Anytime via GitHub UI
 - **Recommended**: Keep daily schedule for fresh NAV data
 
