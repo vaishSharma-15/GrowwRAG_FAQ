@@ -15,32 +15,116 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
+# Custom CSS for exact local frontend styling
 st.markdown("""
 <style>
+    /* Import Hanken Grotesk font */
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+    
     .stApp {
+        background-color: #0A0A0A;
+        font-family: 'Hanken Grotesk', sans-serif;
+    }
+    
+    /* Sidebar styling */
+    .stSidebar {
         background-color: #131313;
+        border-right: 1px solid #494455;
     }
+    
+    /* Chat message styling */
     .stChatMessage {
-        background-color: #1e1e1e;
-        border-radius: 12px;
+        background-color: transparent;
+        border: none;
         padding: 16px;
-        margin: 8px 0;
     }
+    
     .stChatMessage.user {
-        background-color: #2a2a2a;
+        justify-content: flex-end;
     }
+    
     .stChatMessage.assistant {
-        background-color: #1e1e1e;
+        justify-content: flex-start;
     }
+    
+    .stChatMessage.user .stMarkdown {
+        background-color: #7c4dff;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 16px;
+        max-width: 80%;
+        box-shadow: 0 0 15px rgba(124, 77, 255, 0.3);
+    }
+    
+    .stChatMessage.assistant .stMarkdown {
+        background-color: #1e1e1e;
+        color: #e5e2e1;
+        padding: 12px 16px;
+        border-radius: 16px;
+        max-width: 80%;
+        border: 1px solid #494455;
+    }
+    
+    /* Button styling */
     .stButton>button {
         background-color: #7c4dff;
         color: white;
-        border-radius: 8px;
         border: none;
+        border-radius: 16px;
+        padding: 8px 16px;
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s;
+        box-shadow: 0 0 15px rgba(124, 77, 255, 0.3);
     }
+    
     .stButton>button:hover {
-        background-color: #651fff;
+        background-color: #6833ea;
+        opacity: 0.9;
+    }
+    
+    /* Input styling */
+    .stChatInput {
+        background-color: #131313;
+        border: 1px solid #494455;
+        border-radius: 12px;
+        padding: 12px 16px;
+        color: #e5e2e1;
+        font-family: 'Hanken Grotesk', sans-serif;
+    }
+    
+    .stChatInput:focus {
+        border-color: #7c4dff;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.3);
+    }
+    
+    /* Title styling */
+    h1 {
+        color: #cdbdff;
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-weight: 600;
+    }
+    
+    /* Text styling */
+    p, .stMarkdown {
+        color: #e5e2e1;
+        font-family: 'Hanken Grotesk', sans-serif;
+    }
+    
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #131313;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #494455;
+        border-radius: 10px;
     }
 </style>
 """, unsafe_allow_html=True)
