@@ -1,0 +1,14 @@
+[browser]
+gatherUsageStats = false
+serverAddress = "localhost"
+serverPort = 8501
+
+[theme]
+primaryColor = "#cdbdff"
+backgroundColor = "#131313"
+secondaryBackgroundColor = "#1e1e1e"
+textColor = "#e5e2e1"
+font = "sans serif"
+
+[logger]
+level = "info"
