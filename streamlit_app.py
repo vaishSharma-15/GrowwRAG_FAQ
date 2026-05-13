@@ -94,6 +94,22 @@ st.markdown("""
         border-radius: 10px;
     }
 </style>
+
+<script>
+    // Auto-scroll to bottom when new messages are added
+    function scrollToBottom() {
+        const chatContainer = document.querySelector('.stChatMessageContainer');
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    }
+    
+    // Scroll to bottom on page load
+    window.onload = scrollToBottom;
+    
+    // Scroll to bottom after each render
+    setTimeout(scrollToBottom, 100);
+</script>
 """, unsafe_allow_html=True)
 
 # Initialize session state
