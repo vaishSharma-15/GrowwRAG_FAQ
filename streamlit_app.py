@@ -231,23 +231,40 @@ for i, prompt in enumerate(example_prompts):
             
             st.rerun()
 
-# Display chat messages
+# Display chat messages with custom HTML to match local frontend exactly
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    if message["role"] == "user":
+        st.markdown(f"""
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+            <div style="background-color: #2a2a2a; border-radius: 16px; border-top-right-radius: 0; padding: 16px; max-width: 600px; color: #e5e2e1;">
+                <p style="margin: 0; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; line-height: 24px;">{message['content']}</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown(f"""
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #7c4dff; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 18px;">🏦</span>
+                </div>
+                <span style="font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; font-weight: 500; color: #e5e2e1;">Axis Mutual Fund FAQ Assistant</span>
+            </div>
+            <div style="background: rgba(30, 30, 30, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(46, 46, 46, 1); border-left: 4px solid #40e56c; border-radius: 16px; border-top-left-radius: 0; padding: 16px; max-width: 800px; color: #e5e2e1;">
+                <p style="margin: 0 0 16px 0; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; line-height: 24px;">{message['content']}</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # Chat input
 if prompt := st.chat_input("Ask about Axis Mutual Fund schemes..."):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
-
+    
     # Generate response
     response = generate_response(prompt)
     
     # Add assistant message to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
     
-    with st.chat_message("assistant"):
-        st.markdown(response)
+    st.rerun()
