@@ -164,22 +164,21 @@ example_prompts = [
     "What is the AUM of Axis Silver FoF?"
 ]
 
-# Display example prompts
-if not st.session_state.messages:
-    st.markdown("### Quick Questions")
-    cols = st.columns(2)
-    for i, prompt in enumerate(example_prompts):
-        col_idx = i % 2
-        with cols[col_idx]:
-            if st.button(prompt, key=f"prompt_{i}", use_container_width=True):
-                # Add user message
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                
-                # Generate and add assistant response
-                response = generate_response(prompt)
-                st.session_state.messages.append({"role": "assistant", "content": response})
-                
-                st.rerun()
+# Display example prompts (always visible at bottom like local version)
+st.markdown("### Quick Questions")
+cols = st.columns(2)
+for i, prompt in enumerate(example_prompts):
+    col_idx = i % 2
+    with cols[col_idx]:
+        if st.button(prompt, key=f"prompt_{i}", use_container_width=True):
+            # Add user message
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            
+            # Generate and add assistant response
+            response = generate_response(prompt)
+            st.session_state.messages.append({"role": "assistant", "content": response})
+            
+            st.rerun()
 
 # Display chat messages
 for message in st.session_state.messages:
