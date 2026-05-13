@@ -2,8 +2,8 @@ name: Daily Mutual Fund Data Update
 
 on:
   schedule:
-    # Run at 8:00 AM IST (2:30 AM UTC) every day
-    - cron: '30 2 * * *'
+    # Run at 9:00 AM IST (3:30 AM UTC) every day
+    - cron: '30 3 * * *'
   workflow_dispatch:  # Allow manual trigger
     inputs:
       reason:

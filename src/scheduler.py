@@ -160,10 +160,10 @@ def main():
     """Main scheduler function"""
     updater = FinancialMetricsUpdater()
     
-    # Schedule update every 2 days
-    schedule.every(2).days.at("02:00").do(updater.run_update_cycle)
+    # Schedule update every 2 days at 9:00 AM IST
+    schedule.every(2).days.at("09:00").do(updater.run_update_cycle)
     
-    logger.info("Scheduler started. Updates scheduled every 2 days at 02:00")
+    logger.info("Scheduler started. Updates scheduled every 2 days at 09:00 IST")
     logger.info("Press Ctrl+C to stop")
     
     # Run once immediately on startup
