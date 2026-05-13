@@ -1,0 +1,25 @@
+# Streamlit Cloud Deployment Requirements
+# Minimal dependencies for Streamlit app only
+
+# Streamlit
+streamlit==1.32.0
+
+# RAG Pipeline Dependencies
+sentence-transformers==2.5.1
+chromadb==0.4.24
+groq==0.4.2
+
+# Data Processing
+numpy==1.26.4
+pandas==2.2.3
+
+# HTTP Requests
+requests==2.31.0
+
+# Error Handling
+tenacity==8.2.3
+
+# Utilities
+python-dotenv==1.0.1
+urllib3==2.2.1
+python-dateutil==2.9.0
