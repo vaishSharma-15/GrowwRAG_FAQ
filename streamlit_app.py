@@ -94,32 +94,7 @@ with st.sidebar:
 st.title("Axis Mutual Fund FAQ Assistant")
 st.markdown("Ask me anything about Axis mutual fund schemes including expense ratios, NAV, exit loads, and more.")
 
-# Example prompts (like local frontend)
-example_prompts = [
-    "What is the expense ratio of Axis Flexi Cap Fund?",
-    "What is the NAV of Axis Small Cap Fund?",
-    "What is the exit load of Axis Gold Fund?",
-    "What is the AUM of Axis Silver FoF?"
-]
-
-# Display example prompts
-if not st.session_state.messages:
-    st.markdown("### Quick Questions")
-    cols = st.columns(2)
-    for i, prompt in enumerate(example_prompts):
-        col_idx = i % 2
-        with cols[col_idx]:
-            if st.button(prompt, key=f"prompt_{i}", use_container_width=True):
-                # Add user message
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                
-                # Generate and add assistant response
-                response = generate_response(prompt)
-                st.session_state.messages.append({"role": "assistant", "content": response})
-                
-                st.rerun()
-
-# Try to initialize RAG pipeline
+# Try to initialize RAG pipeline first
 rag_available = False
 rag_error = None
 try:
@@ -180,6 +155,31 @@ def generate_response(prompt):
     else:
         # Demo mode response
         return "⚠️ **RAG Pipeline Not Available**\n\nThe full RAG functionality requires additional dependencies (sentence-transformers, chromadb, groq). Please add these to the requirements file and redeploy the app."
+
+# Example prompts (like local frontend)
+example_prompts = [
+    "What is the expense ratio of Axis Flexi Cap Fund?",
+    "What is the NAV of Axis Small Cap Fund?",
+    "What is the exit load of Axis Gold Fund?",
+    "What is the AUM of Axis Silver FoF?"
+]
+
+# Display example prompts
+if not st.session_state.messages:
+    st.markdown("### Quick Questions")
+    cols = st.columns(2)
+    for i, prompt in enumerate(example_prompts):
+        col_idx = i % 2
+        with cols[col_idx]:
+            if st.button(prompt, key=f"prompt_{i}", use_container_width=True):
+                # Add user message
+                st.session_state.messages.append({"role": "user", "content": prompt})
+                
+                # Generate and add assistant response
+                response = generate_response(prompt)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                
+                st.rerun()
 
 # Display chat messages
 for message in st.session_state.messages:
