@@ -110,7 +110,13 @@ if not st.session_state.messages:
         col_idx = i % 2
         with cols[col_idx]:
             if st.button(prompt, key=f"prompt_{i}", use_container_width=True):
+                # Add user message
                 st.session_state.messages.append({"role": "user", "content": prompt})
+                
+                # Generate and add assistant response
+                response = generate_response(prompt)
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                
                 st.rerun()
 
 # Try to initialize RAG pipeline
@@ -147,6 +153,34 @@ except Exception as e:
     st.warning(rag_error)
     st.info("The app is running in demo mode. Full RAG functionality requires additional dependencies.")
 
+# Function to generate response (used by both example prompts and chat input)
+def generate_response(prompt):
+    """Generate response for a given prompt"""
+    if rag_available:
+        with st.spinner("Searching..."):
+            try:
+                response = st.session_state.rag_pipeline.query(prompt)
+                
+                if response.has_answer:
+                    answer = response.answer
+                    if response.source_url:
+                        answer += f"\n\n📄 **Source:** {response.source_url}"
+                    if response.scheme_name:
+                        answer += f"\n🏦 **Scheme:** {response.scheme_name}"
+                    if response.last_updated:
+                        answer += f"\n📅 **Last Updated:** {response.last_updated}"
+                else:
+                    answer = response.answer
+                
+                return answer
+                
+            except Exception as e:
+                error_msg = f"Error: {str(e)}"
+                return error_msg
+    else:
+        # Demo mode response
+        return "⚠️ **RAG Pipeline Not Available**\n\nThe full RAG functionality requires additional dependencies (sentence-transformers, chromadb, groq). Please add these to the requirements file and redeploy the app."
+
 # Display chat messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
@@ -160,32 +194,10 @@ if prompt := st.chat_input("Ask about Axis Mutual Fund schemes..."):
         st.markdown(prompt)
 
     # Generate response
+    response = generate_response(prompt)
+    
+    # Add assistant message to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
+    
     with st.chat_message("assistant"):
-        if rag_available:
-            with st.spinner("Searching..."):
-                try:
-                    response = st.session_state.rag_pipeline.query(prompt)
-                    
-                    if response.has_answer:
-                        answer = response.answer
-                        if response.source_url:
-                            answer += f"\n\n📄 **Source:** {response.source_url}"
-                        if response.scheme_name:
-                            answer += f"\n🏦 **Scheme:** {response.scheme_name}"
-                        if response.last_updated:
-                            answer += f"\n📅 **Last Updated:** {response.last_updated}"
-                    else:
-                        answer = response.answer
-                    
-                    st.markdown(answer)
-                    st.session_state.messages.append({"role": "assistant", "content": answer})
-                    
-                except Exception as e:
-                    error_msg = f"Error: {str(e)}"
-                    st.error(error_msg)
-                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
-        else:
-            # Demo mode response
-            demo_response = "⚠️ **RAG Pipeline Not Available**\n\nThe full RAG functionality requires additional dependencies (sentence-transformers, chromadb, groq). Please add these to the requirements file and redeploy the app."
-            st.markdown(demo_response)
-            st.session_state.messages.append({"role": "assistant", "content": demo_response})
+        st.markdown(response)
