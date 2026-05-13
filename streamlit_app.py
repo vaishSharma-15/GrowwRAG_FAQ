@@ -32,41 +32,6 @@ st.markdown("""
         border-right: 1px solid #494455;
     }
     
-    /* Chat message styling */
-    .stChatMessage {
-        background-color: transparent;
-        border: none;
-        padding: 16px;
-        display: flex;
-        width: 100%;
-    }
-    
-    .stChatMessage.user {
-        justify-content: flex-end;
-    }
-    
-    .stChatMessage.assistant {
-        justify-content: flex-start;
-    }
-    
-    .stChatMessage.user .stMarkdown {
-        background-color: #7c4dff;
-        color: white;
-        padding: 12px 16px;
-        border-radius: 16px;
-        max-width: 70%;
-        box-shadow: 0 0 15px rgba(124, 77, 255, 0.3);
-    }
-    
-    .stChatMessage.assistant .stMarkdown {
-        background-color: #1e1e1e;
-        color: #e5e2e1;
-        padding: 12px 16px;
-        border-radius: 16px;
-        max-width: 70%;
-        border: 1px solid #494455;
-    }
-    
     /* Button styling */
     .stButton>button {
         background-color: #7c4dff;
