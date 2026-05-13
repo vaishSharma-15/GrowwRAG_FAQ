@@ -115,6 +115,7 @@ if not st.session_state.messages:
 
 # Try to initialize RAG pipeline
 rag_available = False
+rag_error = None
 try:
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
     
@@ -122,15 +123,28 @@ try:
     log_dir = os.path.join(os.path.dirname(__file__), 'logs', 'phase4')
     os.makedirs(log_dir, exist_ok=True)
     
-    from rag_pipeline import RAGPipeline
-    from groq_client import GroqClient
-    
-    if "rag_pipeline" not in st.session_state:
-        with st.spinner("Initializing RAG Pipeline..."):
-            st.session_state.rag_pipeline = RAGPipeline()
-    rag_available = True
+    # Check if vector database exists
+    vector_db_path = os.path.join(os.path.dirname(__file__), 'data', 'vector_db', 'chroma_db')
+    if not os.path.exists(vector_db_path):
+        rag_error = "Vector database not found. Please ensure data/vector_db/chroma_db exists."
+        st.warning(rag_error)
+        st.info("The app is running in demo mode. Vector database is required for RAG functionality.")
+    else:
+        from rag_pipeline import RAGPipeline
+        from groq_client import GroqClient
+        
+        if "rag_pipeline" not in st.session_state:
+            with st.spinner("Initializing RAG Pipeline..."):
+                st.session_state.rag_pipeline = RAGPipeline()
+        rag_available = True
+        
+except ImportError as e:
+    rag_error = f"Missing dependency: {str(e)}"
+    st.warning(rag_error)
+    st.info("The app is running in demo mode. Please ensure all RAG dependencies are installed.")
 except Exception as e:
-    st.warning(f"RAG Pipeline not available: {str(e)}")
+    rag_error = f"RAG Pipeline error: {str(e)}"
+    st.warning(rag_error)
     st.info("The app is running in demo mode. Full RAG functionality requires additional dependencies.")
 
 # Display chat messages
