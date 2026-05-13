@@ -149,17 +149,17 @@ with st.sidebar:
     st.markdown("This system does not provide investment advice.")
     
     st.markdown("---")
-    st.markdown("### Quick Actions")
-    if st.button("Clear Chat", use_container_width=True):
-        st.session_state.messages = []
-        st.rerun()
-    
-    st.markdown("---")
     st.markdown("Powered by RAG + Groq LLM", unsafe_allow_html=True)
 
 # Main chat interface
-st.title("Axis Mutual Fund FAQ Assistant")
-st.markdown("Ask me anything about Axis mutual fund schemes including expense ratios, NAV, exit loads, and more.")
+col1, col2 = st.columns([4, 1])
+with col1:
+    st.title("Axis Mutual Fund FAQ Assistant")
+    st.markdown("Ask me anything about Axis mutual fund schemes including expense ratios, NAV, exit loads, and more.")
+with col2:
+    if st.button("Clear Chat", use_container_width=True):
+        st.session_state.messages = []
+        st.rerun()
 
 # Try to initialize RAG pipeline first
 rag_available = False
