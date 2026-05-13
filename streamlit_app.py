@@ -154,8 +154,8 @@ with st.sidebar:
 # Main chat interface
 col1, col2 = st.columns([4, 1])
 with col1:
-    st.title("Axis Mutual Fund FAQ Assistant")
-    st.markdown("Ask me anything about Axis mutual fund schemes including expense ratios, NAV, exit loads, and more.")
+    st.markdown('<h1 style="margin-top: 0; margin-bottom: 8px;">Axis Mutual Fund FAQ Assistant</h1>', unsafe_allow_html=True)
+    st.markdown('<p style="margin-top: 0; margin-bottom: 16px;">Ask me anything about Axis mutual fund schemes including expense ratios, NAV, exit loads, and more.</p>', unsafe_allow_html=True)
 with col2:
     if st.button("Clear Chat", use_container_width=True):
         st.session_state.messages = []
@@ -231,7 +231,7 @@ example_prompts = [
 ]
 
 # Display example prompts (always visible at bottom like local version)
-st.markdown("### Quick Questions")
+st.markdown('<div style="margin-top: 8px; margin-bottom: 16px;">### Quick Questions</div>', unsafe_allow_html=True)
 cols = st.columns(2)
 for i, prompt in enumerate(example_prompts):
     col_idx = i % 2
