@@ -132,7 +132,7 @@ except Exception as e:
 def generate_response(prompt):
     """Generate response for a given prompt"""
     if rag_available:
-        with st.spinner("Searching..."):
+        with st.spinner("🤖 Thinking..."):
             try:
                 response = st.session_state.rag_pipeline.query(prompt)
                 
