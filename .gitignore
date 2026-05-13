@@ -46,7 +46,7 @@ logs/*/ *.log
 # Data files (optional - uncomment if you don't want to commit data)
 # data/extracted/
 # data/processed/chunks/
-data/vector_db/
+# data/vector_db/
 
 # Model caches
 .cache/
