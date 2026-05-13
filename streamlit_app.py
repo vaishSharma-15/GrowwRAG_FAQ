@@ -37,6 +37,8 @@ st.markdown("""
         background-color: transparent;
         border: none;
         padding: 16px;
+        display: flex;
+        width: 100%;
     }
     
     .stChatMessage.user {
@@ -52,7 +54,7 @@ st.markdown("""
         color: white;
         padding: 12px 16px;
         border-radius: 16px;
-        max-width: 80%;
+        max-width: 70%;
         box-shadow: 0 0 15px rgba(124, 77, 255, 0.3);
     }
     
@@ -61,7 +63,7 @@ st.markdown("""
         color: #e5e2e1;
         padding: 12px 16px;
         border-radius: 16px;
-        max-width: 80%;
+        max-width: 70%;
         border: 1px solid #494455;
     }
     
