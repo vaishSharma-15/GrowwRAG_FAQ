@@ -183,26 +183,25 @@ except Exception as e:
 def generate_response(prompt):
     """Generate response for a given prompt"""
     if rag_available:
-        with st.spinner("🤖 Thinking..."):
-            try:
-                response = st.session_state.rag_pipeline.query(prompt)
-                
-                if response.has_answer:
-                    answer = response.answer
-                    if response.source_url:
-                        answer += f"\n\n📄 Source: {response.source_url}"
-                    if response.scheme_name:
-                        answer += f"\n🏦 Scheme: {response.scheme_name}"
-                    if response.last_updated:
-                        answer += f"\n📅 Last Updated: {response.last_updated}"
-                else:
-                    answer = response.answer
-                
-                return answer
-                
-            except Exception as e:
-                error_msg = f"Error: {str(e)}"
-                return error_msg
+        try:
+            response = st.session_state.rag_pipeline.query(prompt)
+            
+            if response.has_answer:
+                answer = response.answer
+                if response.source_url:
+                    answer += f"\n\n📄 Source: {response.source_url}"
+                if response.scheme_name:
+                    answer += f"\n🏦 Scheme: {response.scheme_name}"
+                if response.last_updated:
+                    answer += f"\n📅 Last Updated: {response.last_updated}"
+            else:
+                answer = response.answer
+            
+            return answer
+            
+        except Exception as e:
+            error_msg = f"Error: {str(e)}"
+            return error_msg
     else:
         # Demo mode response
         return "⚠️ **RAG Pipeline Not Available**\n\nThe full RAG functionality requires additional dependencies (sentence-transformers, chromadb, groq). Please add these to the requirements file and redeploy the app."
