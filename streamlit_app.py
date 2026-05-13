@@ -231,7 +231,7 @@ example_prompts = [
 ]
 
 # Display example prompts (always visible at bottom like local version)
-st.markdown('<div style="margin-top: 8px; margin-bottom: 16px;">### Quick Questions</div>', unsafe_allow_html=True)
+st.markdown('<div style="margin-top: 8px; margin-bottom: 16px;">Quick Questions</div>', unsafe_allow_html=True)
 cols = st.columns(2)
 for i, prompt in enumerate(example_prompts):
     col_idx = i % 2
