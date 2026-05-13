@@ -1,0 +1,53 @@
+[
+  {
+    "chunk_id": "120496_chunk_1",
+    "chunk_text": "Scheme Name: Axis Flexi Cap Fund Direct Growth\nScheme Code: 120496\nCategory: Equity\nSub-Category: Flexi-cap\nFund Manager: Krishnaa N, Sachin Relekar\n\nTo download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 0,
+    "chunk_type": "general",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-flexi-cap-fund-direct-growth",
+      "scheme_name": "Axis Flexi Cap Fund Direct Growth",
+      "scheme_code": "120496",
+      "category": "Equity",
+      "sub_category": "Flexi-cap",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.121904",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "120496_chunk_2",
+    "chunk_text": "Financial Details for Axis Flexi Cap Fund Direct Growth:\nExpense Ratio: 0.89%\nExit Load: 1% for redemption within 365 days, Nil after 365 days\nMinimum Investment: \u20b9100\nSIP Amount: \u20b9100\nNAV: \u20b929.52\nNAV Date: 2026-05-13",
+    "chunk_index": 1,
+    "chunk_type": "financial",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-flexi-cap-fund-direct-growth",
+      "scheme_name": "Axis Flexi Cap Fund Direct Growth",
+      "scheme_code": "120496",
+      "category": "Equity",
+      "sub_category": "Flexi-cap",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122038",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "120496_chunk_3",
+    "chunk_text": "Risk and Returns for Axis Flexi Cap Fund Direct Growth:\nRisk Level: Very High\nRiskometer: Very High\nBenchmark: NIFTY 500 Total Return Index\nAUM: \u20b911412.803399 Crores\n\nTo download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 2,
+    "chunk_type": "risk",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-flexi-cap-fund-direct-growth",
+      "scheme_name": "Axis Flexi Cap Fund Direct Growth",
+      "scheme_code": "120496",
+      "category": "Equity",
+      "sub_category": "Flexi-cap",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122041",
+      "chunking_version": "1.0.0"
+    }
+  }
+]

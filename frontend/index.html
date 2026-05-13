@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Axis Mutual Fund FAQ Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #0A0A0A;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(46, 46, 46, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #494455;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#948ea1",
+                      "on-secondary-fixed-variant": "#00531e",
+                      "tertiary-fixed-dim": "#d4bbff",
+                      "primary-container": "#7c4dff",
+                      "on-tertiary-container": "#fdf6ff",
+                      "on-secondary-container": "#004d1b",
+                      "on-tertiary": "#400688",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-container": "#201f1f",
+                      "on-primary-fixed": "#20005f",
+                      "tertiary-fixed": "#ebdcff",
+                      "inverse-primary": "#6833ea",
+                      "surface-dim": "#131313",
+                      "surface-tint": "#cdbdff",
+                      "primary": "#cdbdff",
+                      "on-tertiary-fixed": "#260058",
+                      "tertiary-container": "#855ace",
+                      "outline-variant": "#494455",
+                      "on-primary": "#370096",
+                      "on-background": "#e5e2e1",
+                      "on-primary-fixed-variant": "#4f00d0",
+                      "tertiary": "#d4bbff",
+                      "background": "#131313",
+                      "surface-bright": "#393939",
+                      "on-secondary-fixed": "#002108",
+                      "inverse-on-surface": "#313030",
+                      "on-error": "#690005",
+                      "secondary-fixed": "#69ff87",
+                      "secondary": "#40e56c",
+                      "on-surface-variant": "#cac3d8",
+                      "primary-fixed": "#e8deff",
+                      "secondary-fixed-dim": "#3ce36a",
+                      "on-surface": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "surface-variant": "#353534",
+                      "error-container": "#93000a",
+                      "on-secondary": "#003912",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-container": "#fcf6ff",
+                      "surface-container-highest": "#353534",
+                      "secondary-container": "#02c953",
+                      "surface-container-high": "#2a2a2a",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#582a9f",
+                      "surface": "#131313",
+                      "primary-fixed-dim": "#cdbdff",
+                      "surface-container-low": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-desktop": "48px",
+                      "xs": "4px",
+                      "xl": "40px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "display-md": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "title-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-xl">
+<span class="text-title-lg font-title-lg font-bold text-primary tracking-tight">Axis Mutual Fund FAQ</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-surface-container-low hover:bg-surface-container-high px-md py-xs rounded-full font-label-md text-label-md text-on-surface-variant transition-all" onclick="clearChat()">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span>Clear Chat</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 bottom-0 w-64 flex flex-col z-40 bg-surface-container border-r border-outline-variant">
+<div class="p-lg flex items-center gap-md">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-weight="fill">hub</span>
+</div>
+<div>
+<h2 class="font-label-md text-label-md font-bold text-primary">Axis FAQ</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Verified Intelligence</p>
+</div>
+</div>
+<div class="flex-1 px-md py-sm flex flex-col gap-xs">
+<h3 class="font-label-sm text-label-sm font-bold text-on-surface-variant/60 uppercase tracking-wider mb-sm">Schemes</h3>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Axis Flexi Cap Fund</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">security</span>
+<span>Axis Small Cap Fund</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">account_balance</span>
+<span>Axis Gold Fund</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span>Axis Silver FoF</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">shield</span>
+<span>Axis Defence Index Fund</span>
+</button>
+</div>
+<div class="p-md mt-auto flex flex-col gap-xs">
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant/40 mb-sm">⚠️ Facts-only information. This system does not provide investment advice.</p>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant/40 mt-sm">Powered by RAG + Groq LLM</p>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pl-64 pt-16 h-screen flex flex-col">
+<div class="flex-1 px-lg py-xl flex flex-col gap-xl overflow-y-auto pb-40">
+<!-- Chat Container -->
+<div id="chatContainer" class="flex flex-col gap-xl">
+</div>
+</div>
+<!-- Quick Suggestion Chips - Fixed at bottom -->
+<div class="fixed bottom-32 left-64 right-0 flex flex-wrap gap-sm justify-center py-md bg-surface-container-lowest border-t border-outline-variant z-10" id="suggestionChips">
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all" onclick="setQuery('What is the expense ratio of Axis Flexi Cap Fund?')">Expense ratio of Flexi Cap</button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all" onclick="setQuery('What is the NAV of Axis Small Cap Fund?')">NAV of Small Cap Fund</button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all" onclick="setQuery('What is the exit load of Axis Gold Fund?')">Exit load of Gold Fund</button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all" onclick="setQuery('What is the AUM of Axis Silver FoF?')">AUM of Silver FoF</button>
+</div>
+<!-- Input Area -->
+<div class="p-lg bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-4xl mx-auto relative">
+<textarea id="queryInput" class="w-full bg-surface-container border border-outline-variant rounded-xl pl-md pr-32 py-md font-body-md text-body-md focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none resize-none min-h-[56px] placeholder:text-on-surface-variant/50" placeholder="Ask about Axis Mutual Fund schemes..." rows="1"></textarea>
+<div class="absolute right-md top-1/2 -translate-y-1/2 flex items-center gap-sm">
+<button class="bg-primary text-on-primary h-10 w-10 rounded-lg flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-[0_0_15px_rgba(124,77,255,0.3)]" onclick="submitQuery()">
+<span class="material-symbols-outlined" data-weight="fill">send</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body>
+<script src="app.js?v=7"></script>
+</html>

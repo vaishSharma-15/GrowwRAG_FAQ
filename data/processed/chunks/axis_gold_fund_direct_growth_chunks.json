@@ -1,0 +1,53 @@
+[
+  {
+    "chunk_id": "120551_chunk_1",
+    "chunk_text": "Scheme Name: Axis Gold Fund Direct Growth\nScheme Code: 120551\nCategory: Commodity\nSub-Category: Gold\nFund Manager: Aditya Pagaria, Pratik Tibrewal\n\nTo download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 0,
+    "chunk_type": "general",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-gold-fund-direct-growth",
+      "scheme_name": "Axis Gold Fund Direct Growth",
+      "scheme_code": "120551",
+      "category": "Commodity",
+      "sub_category": "Gold",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122960",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "120551_chunk_2",
+    "chunk_text": "Financial Details for Axis Gold Fund Direct Growth:\nExpense Ratio: 0.21%\nExit Load: Nil\nMinimum Investment: \u20b9100\nSIP Amount: \u20b9100\nNAV: \u20b947.58\nNAV Date: 2026-05-13",
+    "chunk_index": 1,
+    "chunk_type": "financial",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-gold-fund-direct-growth",
+      "scheme_name": "Axis Gold Fund Direct Growth",
+      "scheme_code": "120551",
+      "category": "Commodity",
+      "sub_category": "Gold",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122962",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "120551_chunk_3",
+    "chunk_text": "Risk and Returns for Axis Gold Fund Direct Growth:\nRisk Level: Very High\nRiskometer: Very High\nBenchmark: Nifty SDL September 2026 Debt Index Fund Direct Growth\nAUM: \u20b92809.3622 Crores\n\nTo download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 2,
+    "chunk_type": "risk",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-gold-fund-direct-growth",
+      "scheme_name": "Axis Gold Fund Direct Growth",
+      "scheme_code": "120551",
+      "category": "Commodity",
+      "sub_category": "Gold",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122964",
+      "chunking_version": "1.0.0"
+    }
+  }
+]

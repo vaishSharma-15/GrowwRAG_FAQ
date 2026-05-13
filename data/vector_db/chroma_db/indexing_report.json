@@ -1,0 +1,17 @@
+{
+  "indexing_date": "2026-05-13T15:34:17.574581",
+  "model_name": "all-MiniLM-L6-v2",
+  "embedding_dimension": 384,
+  "vector_db_path": "data/vector_db/chroma_db",
+  "statistics": {
+    "total_chunks": 20,
+    "indexed_chunks": 20,
+    "failed_chunks": 0,
+    "embeddings_generated": 20
+  },
+  "collection_stats": {
+    "collection_name": "mutual_fund_chunks",
+    "total_chunks": 20,
+    "persist_directory": "data/vector_db/chroma_db"
+  }
+}

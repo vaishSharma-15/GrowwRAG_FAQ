@@ -1,0 +1,78 @@
+name: Daily Mutual Fund Data Update
+
+on:
+  schedule:
+    # Run at 8:00 AM IST (2:30 AM UTC) every day
+    - cron: '30 2 * * *'
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      reason:
+        description: 'Reason for manual run'
+        required: false
+        default: 'Manual data refresh'
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4
+    
+    - name: Scrape current data from Groww
+      run: |
+        python src/scrape_groww_api.py
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+    
+    - name: Create chunks from scraped data
+      run: |
+        python src/create_real_chunks.py
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+    
+    - name: Commit and push updated data
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        # Check if there are changes
+        if git diff --quiet data/processed/chunks/; then
+          echo "No changes to commit - data is up to date"
+          exit 0
+        fi
+        
+        # Add only the chunk files
+        git add data/processed/chunks/
+        git add data/extracted/
+        
+        # Commit with timestamp
+        git commit -m "📊 Daily data update: $(date +'%Y-%m-%d %H:%M IST')"
+        
+        # Push changes
+        git push
+    
+    - name: Upload chunks as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: mutual-fund-chunks-${{ github.run_id }}
+        path: data/processed/chunks/
+        retention-days: 7
+    
+    - name: Log update summary
+      run: |
+        echo "✅ Daily data update completed"
+        echo "Date: $(date)"
+        echo "Scraped 5 Axis Mutual Fund schemes from Groww"
+        echo "Updated chunks saved to data/processed/chunks/"

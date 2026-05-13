@@ -1,0 +1,42 @@
+# Core Dependencies
+playwright==1.42.0
+beautifulsoup4==4.12.3
+lxml==5.1.0
+requests==2.31.0
+
+# Data Validation
+pydantic==2.6.4
+pydantic-settings==2.2.1
+
+# Error Handling and Retry
+tenacity==8.2.3
+
+# Logging
+python-dotenv==1.0.1
+
+# Data Processing
+pandas==2.2.1
+numpy==1.26.4
+
+# Phase 3: Vector Database
+sentence-transformers==2.5.1
+chromadb==0.4.24
+
+# Phase 4: RAG Pipeline with Groq LLM
+groq==0.4.2
+
+# Phase 5/6: Backend API & Frontend
+fastapi==0.110.0
+uvicorn==0.27.1
+python-multipart==0.0.9
+streamlit==1.32.0
+
+# Utilities
+urllib3==2.2.1
+python-dateutil==2.9.0
+schedule==1.2.0
+
+# Development
+pytest==8.1.1
+pytest-asyncio==0.23.6
+black==24.4.0

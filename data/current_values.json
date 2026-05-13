@@ -1,0 +1,46 @@
+{
+  "last_updated": "2024-05-10",
+  "source": "Groww",
+  "schemes": [
+    {
+      "code": "120496",
+      "name": "Axis Flexi Cap Fund Direct Growth",
+      "nav": 52.47,
+      "expense_ratio": 0.89,
+      "aum": 21793.0,
+      "fund_manager": "Krishnaa N, Sachin Relekar, Hitesh Das"
+    },
+    {
+      "code": "120503",
+      "name": "Axis Small Cap Fund Direct Growth",
+      "nav": 71.89,
+      "expense_ratio": 0.46,
+      "aum": 18635.0,
+      "fund_manager": "Tejas Sheth, Mayank Hyanki, Krishnaa N"
+    },
+    {
+      "code": "120555",
+      "name": "Axis Silver FoF Direct Growth",
+      "nav": 21.35,
+      "expense_ratio": 0.18,
+      "aum": 589.0,
+      "fund_manager": "Aditya Pagaria, Pratik Tibrewal"
+    },
+    {
+      "code": "120551",
+      "name": "Axis Gold Fund Direct Growth",
+      "nav": 19.82,
+      "expense_ratio": 0.18,
+      "aum": 2867.0,
+      "fund_manager": "Aditya Pagaria, Pratik Tibrewal"
+    },
+    {
+      "code": "120595",
+      "name": "Axis Nifty India Defence Index Fund Direct Growth",
+      "nav": 14.28,
+      "expense_ratio": 0.21,
+      "aum": 473.0,
+      "fund_manager": "Nandik Mallik, Rohit Gautam"
+    }
+  ]
+}

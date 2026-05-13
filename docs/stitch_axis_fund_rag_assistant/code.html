@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AlphaFund AI | Groww RAG Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #0A0A0A;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(46, 46, 46, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #494455;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#948ea1",
+                      "on-secondary-fixed-variant": "#00531e",
+                      "tertiary-fixed-dim": "#d4bbff",
+                      "primary-container": "#7c4dff",
+                      "on-tertiary-container": "#fdf6ff",
+                      "on-secondary-container": "#004d1b",
+                      "on-tertiary": "#400688",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-container": "#201f1f",
+                      "on-primary-fixed": "#20005f",
+                      "tertiary-fixed": "#ebdcff",
+                      "inverse-primary": "#6833ea",
+                      "surface-dim": "#131313",
+                      "surface-tint": "#cdbdff",
+                      "primary": "#cdbdff",
+                      "on-tertiary-fixed": "#260058",
+                      "tertiary-container": "#855ace",
+                      "outline-variant": "#494455",
+                      "on-primary": "#370096",
+                      "on-background": "#e5e2e1",
+                      "on-primary-fixed-variant": "#4f00d0",
+                      "tertiary": "#d4bbff",
+                      "background": "#131313",
+                      "surface-bright": "#393939",
+                      "on-secondary-fixed": "#002108",
+                      "inverse-on-surface": "#313030",
+                      "on-error": "#690005",
+                      "secondary-fixed": "#69ff87",
+                      "secondary": "#40e56c",
+                      "on-surface-variant": "#cac3d8",
+                      "primary-fixed": "#e8deff",
+                      "secondary-fixed-dim": "#3ce36a",
+                      "on-surface": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "surface-variant": "#353534",
+                      "error-container": "#93000a",
+                      "on-secondary": "#003912",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-container": "#fcf6ff",
+                      "surface-container-highest": "#353534",
+                      "secondary-container": "#02c953",
+                      "surface-container-high": "#2a2a2a",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#582a9f",
+                      "surface": "#131313",
+                      "primary-fixed-dim": "#cdbdff",
+                      "surface-container-low": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-desktop": "48px",
+                      "xs": "4px",
+                      "xl": "40px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "display-md": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "title-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "display-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-xl">
+<span class="text-title-lg font-title-lg font-bold text-primary tracking-tight">AlphaFund AI</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Portfolio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Fund Explorer</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Markets</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-lg pl-xl pr-md py-xs font-body-md text-body-md w-64 focus:outline-none focus:border-primary" placeholder="Search markets..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">account_balance_wallet</button>
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-lg font-label-md text-label-md font-bold hover:opacity-90 active:scale-95 transition-all">Invest Now</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 bottom-0 w-64 flex flex-col z-40 bg-surface-container border-r border-outline-variant">
+<div class="p-lg flex items-center gap-md">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-weight="fill">hub</span>
+</div>
+<div>
+<h2 class="font-label-md text-label-md font-bold text-primary">Groww RAG</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Verified Intelligence</p>
+</div>
+</div>
+<div class="flex-1 px-md py-sm flex flex-col gap-xs">
+<button class="bg-primary-container/20 text-primary border-l-4 border-primary flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">add_comment</span>
+<span>New Chat</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Market Analysis</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">security</span>
+<span>Risk Assessment</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">bookmark</span>
+<span>Saved Reports</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md transition-all">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</button>
+</div>
+<div class="p-md mt-auto flex flex-col gap-xs">
+<div class="bg-surface-variant/30 p-md rounded-xl mb-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Storage</p>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%]"></div>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-bold py-sm rounded-lg mb-md hover:opacity-90 active:opacity-80 transition-all">Upgrade to Pro</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md">
+<span class="material-symbols-outlined">help</span>
+<span>Help Center</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 flex items-center gap-md px-md py-sm font-body-md text-body-md">
+<span class="material-symbols-outlined">logout</span>
+<span>Log Out</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pl-64 pt-16 h-screen flex flex-col">
+<div class="flex-1 overflow-y-auto px-lg py-xl flex flex-col gap-xl">
+<!-- User Prompt -->
+<div class="flex justify-end">
+<div class="max-w-2xl bg-surface-container-high rounded-2xl rounded-tr-none p-lg">
+<p class="font-body-md text-body-md text-on-surface">Can you analyze the performance of the Axis Bluechip Fund compared to the Nifty 50 over the last 3 years? Focus on risk-adjusted returns and drawdown periods.</p>
+</div>
+</div>
+<!-- AI Response (Verified Answer) -->
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-on-primary-container" data-weight="fill">hub</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">Groww RAG Assistant</span>
+<div class="bg-secondary/15 px-sm py-xs rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-[14px]" data-weight="fill">verified</span>
+<span class="text-secondary font-label-sm text-label-sm font-bold">Verified Answer</span>
+</div>
+</div>
+<div class="glass-panel p-lg rounded-2xl rounded-tl-none max-w-3xl border-l-4 border-l-secondary">
+<p class="font-body-md text-body-md text-on-surface mb-lg">Based on historical data from 2021-2024, the Axis Bluechip Fund has shown consistent alpha generation despite market volatility. Here is the comparative breakdown:</p>
+<!-- Bento Style Grid for Stats -->
+<div class="grid grid-cols-2 gap-md mb-lg">
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-xs">3Y CAGR (Axis)</p>
+<p class="font-headline-md text-headline-md text-secondary">16.4%</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-xs">Sharpe Ratio</p>
+<p class="font-headline-md text-headline-md text-primary">1.12</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-xs">Max Drawdown</p>
+<p class="font-headline-md text-headline-md text-on-surface">-12.3%</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-xs">Nifty 50 Alpha</p>
+<p class="font-headline-md text-headline-md text-secondary">+2.1%</p>
+</div>
+</div>
+<div class="relative h-48 w-full bg-surface-container-lowest rounded-xl border border-outline-variant mb-lg overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="A sophisticated financial line chart with glowing purple and mint green data lines against a deep charcoal grid. The visual style is high-tech and minimalist, representing stock market trends and performance metrics with cinematic lighting and a premium executive dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq6r6GW4pNyZo3B1SeW4kMltfHYFXRcu-168DLPhuqbSUjZGiZhReLwzBq3tA-BF6N4bVy4H6w5HO09vIwnnFiyG0b_rbzkq8_idenkB7drfzkq1OhXjKgOxGf68AOINmizAcB-yx8vEwRyFIa1LUyiYVTNFx6FWZYLynQKLtYX9AfoU-Cs3pDyz6rQlA59WBoj_3w8TWUEnSnzNP-4eK0tu5HKJYxSMFV2VPKZWGa01JmhMvIlxBlqfMmGv5x2cmvoK3Jm2lSIvHn"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-[32px] mb-xs">bar_chart</span>
+<p class="font-label-md text-label-md text-on-surface-variant">Dynamic Performance Chart</p>
+</div>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container-high hover:bg-surface-container-highest px-md py-xs rounded-lg border border-outline-variant text-on-surface-variant font-label-md text-label-md flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                            Full PDF Report
+                        </button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest px-md py-xs rounded-lg border border-outline-variant text-on-surface-variant font-label-md text-label-md flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                            Share Insight
+                        </button>
+</div>
+</div>
+</div>
+<!-- Quick Suggestion Chips -->
+<div class="flex flex-wrap gap-sm mt-md">
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all">Compare with Mirae Asset Large Cap</button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all">Show volatility index</button>
+<button class="px-md py-sm rounded-full bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all">What's the expense ratio?</button>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-lg bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-4xl mx-auto relative">
+<textarea class="w-full bg-surface-container border border-outline-variant rounded-xl pl-md pr-32 py-md font-body-md text-body-md focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none resize-none min-h-[56px] placeholder:text-on-surface-variant/50" placeholder="Ask about fund performance, risk metrics, or market outlook..." rows="1"></textarea>
+<div class="absolute right-md top-1/2 -translate-y-1/2 flex items-center gap-sm">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">attach_file</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">mic</button>
+<button class="bg-primary text-on-primary h-10 w-10 rounded-lg flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-[0_0_15px_rgba(124,77,255,0.3)]">
+<span class="material-symbols-outlined" data-weight="fill">send</span>
+</button>
+</div>
+</div>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant/40 mt-sm">Groww RAG uses verified market data but can provide incorrect results. Cross-check critical investment decisions.</p>
+</div>
+</main>
+<!-- FAB (Suppressed on this screen per mandate) -->
+</body></html>

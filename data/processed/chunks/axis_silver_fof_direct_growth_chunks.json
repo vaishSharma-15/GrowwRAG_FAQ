@@ -1,0 +1,70 @@
+[
+  {
+    "chunk_id": "120555_chunk_1",
+    "chunk_text": "Scheme Name: Axis Silver FoF Direct Growth\nScheme Code: 120555\nCategory: Fund of Funds\nSub-Category: Commodities\nFund Manager: Aditya Pagaria, Pratik Tibrewal\n\nTo download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 0,
+    "chunk_type": "general",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-silver-fof-direct-growth",
+      "scheme_name": "Axis Silver FoF Direct Growth",
+      "scheme_code": "120555",
+      "category": "Fund of Funds",
+      "sub_category": "Commodities",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122756",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "120555_chunk_2",
+    "chunk_text": "Financial Details for Axis Silver FoF Direct Growth:\nExpense Ratio: 0.11%\nExit Load: 0.50% for redemption within 90 days, Nil after 90 days\nMinimum Investment: \u20b9100\nSIP Amount: \u20b9100\nNAV: \u20b943.215\nNAV Date: 2026-05-13",
+    "chunk_index": 1,
+    "chunk_type": "financial",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-silver-fof-direct-growth",
+      "scheme_name": "Axis Silver FoF Direct Growth",
+      "scheme_code": "120555",
+      "category": "Fund of Funds",
+      "sub_category": "Commodities",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122759",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "120555_chunk_3",
+    "chunk_text": "Risk and Returns for Axis Silver FoF Direct Growth:\nRisk Level: Very High\nRiskometer: Very High\nBenchmark: Nifty SDL September 2026 Debt Index Fund Direct Growth\nAUM: \u20b91071.1475 Crores\n\nTo download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 2,
+    "chunk_type": "risk",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds/axis-silver-fof-direct-growth",
+      "scheme_name": "Axis Silver FoF Direct Growth",
+      "scheme_code": "120555",
+      "category": "Fund of Funds",
+      "sub_category": "Commodities",
+      "document_type": "scheme_details",
+      "last_updated": "2026-05-13",
+      "chunked_at": "2026-05-10T17:25:32.122761",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "120555_chunk_4",
+    "chunk_text": "To download statements or capital gains reports of Axis Silver FoF Direct Growth, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 3,
+    "chunk_type": "general",
+    "metadata": {
+      "source_url": "https://axismf.com",
+      "scheme_name": "Axis Silver FoF Direct Growth",
+      "scheme_code": "120555",
+      "category": "Fund of Funds",
+      "sub_category": "Commodities",
+      "document_type": "process_guide",
+      "last_updated": "2024-05-10",
+      "chunked_at": "2026-05-10T17:25:32.122763",
+      "chunking_version": "1.0.0"
+    }
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "chunk_id": "elss_info_1",
+    "chunk_text": "ELSS (Equity Linked Savings Scheme) Lock-in Period:\nELSS mutual funds have a mandatory lock-in period of 3 years from the date of investment.\nThis means you cannot redeem or switch your ELSS units before 3 years.\nELSS investments qualify for tax deduction under Section 80C of the Income Tax Act up to ₹1.5 lakhs per financial year.",
+    "chunk_index": 0,
+    "chunk_type": "faq",
+    "metadata": {
+      "source_url": "https://groww.in/mutual-funds",
+      "scheme_name": "General ELSS Information",
+      "scheme_code": "N/A",
+      "category": "Tax Saver",
+      "sub_category": "ELSS",
+      "document_type": "investor_education",
+      "last_updated": "2024-05-10",
+      "chunked_at": "2026-05-10T17:25:32.123318",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "investor_services_1",
+    "chunk_text": "To download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 1,
+    "chunk_type": "faq",
+    "metadata": {
+      "source_url": "https://axismf.com",
+      "scheme_name": "Investor Services",
+      "scheme_code": "N/A",
+      "category": "Service",
+      "sub_category": "Statement Download",
+      "document_type": "process_guide",
+      "last_updated": "2024-05-10",
+      "chunked_at": "2026-05-10T17:25:32.123320",
+      "chunking_version": "1.0.0"
+    }
+  },
+  {
+    "chunk_id": "investor_services_2",
+    "chunk_text": "To download statements or capital gains reports of any Axis Mutual Fund, visit axismf.com, login to your account, and navigate to \"Capital Gains Statement\" or \"Account Statement\". Select the financial year and your folio number(s) to download the report in PDF format.",
+    "chunk_index": 2,
+    "chunk_type": "faq",
+    "metadata": {
+      "source_url": "https://axismf.com",
+      "scheme_name": "Investor Services",
+      "scheme_code": "N/A",
+      "category": "Service",
+      "sub_category": "Capital Gains Report",
+      "document_type": "process_guide",
+      "last_updated": "2024-05-10",
+      "chunked_at": "2026-05-10T17:25:32.123323",
+      "chunking_version": "1.0.0"
+    }
+  }
+]
